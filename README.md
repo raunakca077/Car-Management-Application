@@ -49,11 +49,11 @@ A full-stack web application that allows users to manage car listings, register,
   - Express
   - MongoDB (using Mongoose for data modeling)
   - JWT (JSON Web Token) for authentication
+  - Bcrypt for password protection
 
 - **Development Tools**:
   - Postman for API testing
   - Git for version control
-  - Docker (optional for containerization)
 
 ---
 
