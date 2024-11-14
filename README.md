@@ -61,7 +61,7 @@ A full-stack web application that allows users to manage car listings, register,
 
 1. Backend:
    ```bash
-   git clone https://github.com/your-username/car-management-system.git
+   git clone https://github.com/raunakca077/Car-Management-Application.git
    cd car-management-system
    cd backend/
    npm install
