@@ -18,7 +18,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(`http://car-management-application-backend-eta.vercel.app
+        const { data } = await axios.get(`https://car-management-application-backend-eta.vercel.app
 /api/cars/${id}`, {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,

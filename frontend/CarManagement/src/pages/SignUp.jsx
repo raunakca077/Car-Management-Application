@@ -16,7 +16,8 @@ const SignUp = () => {
     try {
       setError('');
       
-      const { data } = await axios.post(`http://localhost:5000/api/users/register`, { name, email, password });
+      const { data } = await axios.post(`https://car-management-application-backend-eta.vercel.app
+/api/users/register`, { name, email, password });
       localStorage.setItem('userInfo', JSON.stringify(data));
       
       // Use navigate() instead of history.push()

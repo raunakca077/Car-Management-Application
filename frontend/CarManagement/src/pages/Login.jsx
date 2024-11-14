@@ -13,7 +13,7 @@ const Login = ({ history }) => {
     e.preventDefault();
     try {
       setError('');
-      const { data } = await axios.post(`http://car-management-application-backend-eta.vercel.app
+      const { data } = await axios.post(`https://car-management-application-backend-eta.vercel.app
 /api/users/login`, { email, password });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate('/dashboard');  // Replaces history.push
