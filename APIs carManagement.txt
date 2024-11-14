@@ -1,0 +1,36 @@
+APIs and Corresponding Frontend Components:
+
+1. User Registration API:
+
+Endpoint: POST /api/users/register
+Frontend Component: SignUp.jsx
+
+2. User Login API:
+
+Endpoint: POST /api/users/login
+Frontend Component: Login.jsx
+
+3. Create Product API:
+
+Endpoint: POST /api/cars
+Frontend Component: ProductCreate.jsx
+
+4. Get All Products API:
+
+Endpoint: GET /api/cars
+Frontend Component: ProductList.jsx
+
+5. Get Product by ID API:
+
+Endpoint: GET /api/cars/:id
+Frontend Component: ProductDetail.jsx
+
+6. Update Product API:
+
+Endpoint: PUT /api/cars/:id
+Frontend Component: ProductDetail.jsx
+
+7. Delete Product API:
+
+Endpoint: DELETE /api/cars/:id
+Frontend Component: ProductDetail.jsx
