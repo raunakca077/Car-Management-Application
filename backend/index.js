@@ -17,21 +17,27 @@ const __dirname = dirname(__filename);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 
-
 app.use(
   cors({
-    origin:'https://car-management-application-ve1f.vercel.app', // Fallback to localhost
+    origin: 'https://car-management-application-ve1f.vercel.app',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-  }));
+  })
+);
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
-app.use('/',(req,res)=>{res.send("welcome buddy")})
+
+// API Routes
 app.use('/api/users', userRoutes);
 app.use('/api/cars', carRoutes);
+
+// Default route for other paths
+// app.use('/', (req, res) => {
+//   res.send("Welcome buddy");
+// });
 
 app.listen(5000, () => {
   console.log('Server is running on port 5000');
