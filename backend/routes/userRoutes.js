@@ -42,19 +42,28 @@ router.post('/register', asyncHandler(async (req, res) => {
 // Login user
 router.post('/login', asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-console.log(password)
-  const user = await User.findOne({ email });
 
-  if (user && (await bcrypt.compare(password, user.password))) {
+  // Check if both email and password are provided
+  if (!email || !password) {
+    res.status(400);
+    throw new Error('Email and password are required');
+  }
+  const user = await User.findOne({ email });
+  if (!user) {
+    res.status(401); // Unauthorized
+    throw new Error('Invalid email or password');
+  }
+  const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  if (isPasswordCorrect) {
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
       token: generateToken(user._id),
     });
-    // console.log(token)
   } else {
-    res.status(401);
+    // If password is incorrect, respond with an error
+    res.status(401); // Unauthorized
     throw new Error('Invalid email or password');
   }
 }));

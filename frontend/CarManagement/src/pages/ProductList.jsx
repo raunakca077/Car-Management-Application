@@ -11,35 +11,42 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        const token = JSON.parse(localStorage.getItem('userInfo'))?.token;
+        if (!token) {
+          setError('User is not logged in');
+          return;
+        }
+
         const { data } = await axios.get(`https://car-management-application-nhas.onrender.com/api/cars`, {
           headers: {
-            Authorization: `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
+
         setProducts(data);
-        setFilteredProducts(data); // Initialize filteredProducts with all products
+        setFilteredProducts(data);
       } catch (err) {
         setError('Failed to load products. Please try again.');
         console.error(err);
       }
     };
+
     fetchProducts();
   }, []);
 
-  // Function to handle the search input
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
 
-    // Filter products based on search query (search in title, description, or tags)
     const filtered = products.filter(
       (product) =>
         product.title.toLowerCase().includes(query) ||
         product.description.toLowerCase().includes(query) ||
-        product.tags.some((tag) => tag.toLowerCase().includes(query))
+        (Array.isArray(product.tags) &&
+          product.tags.some((tag) => tag.toLowerCase().includes(query)))
     );
 
-    setFilteredProducts(filtered); // Update filtered products based on the query
+    setFilteredProducts(filtered);
   };
 
   return (
@@ -70,7 +77,7 @@ const ProductList = () => {
                 <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   <div className="overflow-hidden rounded-xl mb-4">
                     <img
-                      src={product.images[0] ? `https://https://car-management-application-nhas.onrender.com/${product.images[0]}` : 'https://via.placeholder.com/300'}
+                      src={product.images[0] ? `https://car-management-application-nhas.onrender.com/${product.images[0]}` : 'https://via.placeholder.com/300'}
                       alt={product.title}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                     />
