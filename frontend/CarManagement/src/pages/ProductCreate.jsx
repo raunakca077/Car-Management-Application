@@ -21,8 +21,7 @@ const ProductCreate = () => {
 
     try {
       setError('');
-      await axios.post(`https://car-management-application-backend-eta.vercel.app
-/api/cars`, formData, {
+      await axios.post(`https://car-management-application-nhas.onrender.com/api/cars`, formData, {
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,
           'Content-Type': 'multipart/form-data',

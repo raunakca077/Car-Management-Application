@@ -16,7 +16,7 @@ const SignUp = () => {
     try {
       setError('');
       
-      const { data } = await axios.post(`https://car-management-application-backend-eta.vercel.app
+      const { data } = await axios.post(`https://car-management-application-nhas.onrender.com
 /api/users/register`, { name, email, password });
       localStorage.setItem('userInfo', JSON.stringify(data));
       

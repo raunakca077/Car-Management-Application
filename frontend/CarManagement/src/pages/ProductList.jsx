@@ -11,8 +11,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get(`https://car-management-application-backend-eta.vercel.app
-/api/cars`, {
+        const { data } = await axios.get(`https://car-management-application-nhas.onrender.com/api/cars`, {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,
           },
@@ -71,8 +70,7 @@ const ProductList = () => {
                 <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   <div className="overflow-hidden rounded-xl mb-4">
                     <img
-                      src={product.images[0] ? `https://car-management-application-backend-eta.vercel.app
-/${product.images[0]}` : 'https://via.placeholder.com/300'}
+                      src={product.images[0] ? `https://https://car-management-application-nhas.onrender.com/${product.images[0]}` : 'https://via.placeholder.com/300'}
                       alt={product.title}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                     />

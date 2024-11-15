@@ -18,8 +18,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(`https://car-management-application-backend-eta.vercel.app
-/api/cars/${id}`, {
+        const { data } = await axios.get(`https://car-management-application-nhas.onrender.com/api/cars/${id}`, {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,
           },
@@ -36,7 +35,7 @@ const ProductDetail = () => {
 
   const deleteProduct = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/cars/${id}`, {
+      await axios.delete(`https://car-management-application-nhas.onrender.com/api/cars/${id}`, {
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,
         },
@@ -72,7 +71,7 @@ const ProductDetail = () => {
         });
       }
 
-      const { data } = await axios.put(`http://localhost:5000/api/cars/${id}`, formData, {
+      const { data } = await axios.put(`https://car-management-application-nhas.onrender.com/api/cars/${id}`, formData, {
         headers: {
           'Authorization': `Bearer ${JSON.parse(localStorage.getItem('userInfo')).token}`,
           'Content-Type': 'multipart/form-data', // Important for file upload
@@ -101,7 +100,7 @@ const ProductDetail = () => {
               {product.images && product.images.map((image, index) => (
                 <div key={index} className="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transform transition duration-300 hover:scale-105">
                   <img
-                    src={`http://localhost:5000/${image}`}  // Ensure the full URL is used
+                    src={`https://car-management-application-nhas.onrender.com/${image}`}  // Ensure the full URL is used
                     alt={product.title}
                     className="w-full h-64 object-cover"
                   />
