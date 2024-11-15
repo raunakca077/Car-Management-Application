@@ -3,6 +3,8 @@ import Car from '../models/Car.js';
 import asyncHandler from 'express-async-handler';
 import { protect } from '../middleware/authMiddleware.js';
 import multer from 'multer';
+import path from 'path';
+
 
 const router = express.Router();
 
