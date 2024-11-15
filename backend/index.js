@@ -19,7 +19,8 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'https://car-management-application-backend-eta.vercel.app'}));
+  origin: 'http://localhost:5173',
+}));
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
