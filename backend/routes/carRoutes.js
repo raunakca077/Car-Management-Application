@@ -7,11 +7,13 @@ import multer from 'multer';
 const router = express.Router();
 
 const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/');
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Save files in 'uploads' directory
   },
-  filename(req, file, cb) {
-    cb(null, `${file.fieldname}-${Date.now()}${file.originalname}`);
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const filename = `images-${Date.now()}${ext}`;
+    cb(null, filename); // Generate a unique filename
   },
 });
 

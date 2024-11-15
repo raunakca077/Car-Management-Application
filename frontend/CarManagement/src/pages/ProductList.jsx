@@ -76,12 +76,11 @@ const ProductList = () => {
               <Link to={`/product/${product._id}`} key={product._id} className="transform hover:scale-105 transition-transform duration-300">
                 <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   <div className="overflow-hidden rounded-xl mb-4">
-                  <img
-                  src={product.images[0] ? `https://car-management-application-nhas.onrender.com/uploads/${product.images[0]}` : 'https://via.placeholder.com/300'}
-                  alt={product.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
-                />
-
+                    <img
+                      src={product.images[0] ? `https://car-management-application-nhas.onrender.com/${product.images[0]}` : 'https://via.placeholder.com/300'}
+                      alt={product.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                    />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">{product.title}</h2>
                   <p className="text-gray-600 text-sm">{product.description.substring(0, 80)}...</p>
