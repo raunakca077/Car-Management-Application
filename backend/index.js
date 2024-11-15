@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://car-management-application-ve1f.vercel.app',
+    origin:'http://localhost:5173', // Fallback to localhost
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
