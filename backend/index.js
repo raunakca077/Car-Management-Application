@@ -18,10 +18,13 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || 'http://localhost:5173', // Fallback to localhost
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }));
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
