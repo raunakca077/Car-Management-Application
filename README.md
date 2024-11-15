@@ -76,5 +76,5 @@ A full-stack web application that allows users to manage car listings, register,
    ```
 
    ### Try Here :
-   (https://car-management-application-ve1f.vercel.app/)[https://car-management-application-ve1f.vercel.app/]
+   [https://car-management-application-ve1f.vercel.app/]
    
